@@ -1,0 +1,54 @@
+/* Shared styles for all pages */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+#qrcode {
+  margin: 20px 0;
+  display: block;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+button:hover {
+  background-color: #357AE8;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.container {
+  max-width: 600px;
+  text-align: center;
+} 

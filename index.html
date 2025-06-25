@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scan QR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Firebase requires being loaded as modules -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <h1>Scan QR Code to Book Desk</h1>
+  <canvas id="qrcode"></canvas>
+  <p id="status">Ready to scan</p>
+</body>
+</html>
