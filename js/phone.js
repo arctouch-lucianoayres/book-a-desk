@@ -13,8 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update the session state
     update(sessionRef, { state: 'clicked' })
       .then(() => {
-        document.getElementById('status').textContent = 'Button clicked!';
+        document.getElementById('status').textContent = 'Confirmation sent!';
         actionButton.disabled = true;
+        
+        // Redirect to thank you page
+        window.location.href = 'thankyou-phone.html';
       })
       .catch(error => {
         console.error("Error updating state:", error);
