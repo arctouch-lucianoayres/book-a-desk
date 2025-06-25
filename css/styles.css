@@ -66,6 +66,7 @@ p {
   flex-direction: column;
   align-items: center;
   margin: 2rem 0;
+  width: 100%;
 }
 
 #qrcode {
@@ -75,7 +76,8 @@ p {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px var(--shadow-color);
-  max-width: 80%;
+  max-width: 90%;
+  height: auto;
 }
 
 .subtitle {
@@ -163,6 +165,7 @@ button:disabled {
   
   #qrcode {
     margin: 2.5rem auto;
+    padding: 2rem;
   }
   
   .qr-container {

@@ -11,7 +11,12 @@ set(sessionRef, { state: 'waiting' })
 
 const phoneUrl = `${location.origin}/phone.html?sessionId=${sessionId}`;
 
-QRCode.toCanvas(document.getElementById('qrcode'), phoneUrl);
+// Generate larger QR code with options
+QRCode.toCanvas(document.getElementById('qrcode'), phoneUrl, {
+  width: 280,  // Increased size
+  margin: 2,   // Smaller margin to maximize QR code size
+  scale: 8     // Higher scale for better quality
+});
 
 // Listen for state changes using onValue
 onValue(ref(db, `sessions/${sessionId}/state`), (snap) => {
