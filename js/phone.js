@@ -1,5 +1,5 @@
 // Import Firebase modules
-import { db } from './js/firebase-config.js';
+import { db } from './firebase-config.js';
 import { ref, update } from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js';
 
 const params = new URLSearchParams(window.location.search);
