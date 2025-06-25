@@ -20,8 +20,15 @@ QRCode.toCanvas(document.getElementById('qrcode'), phoneUrl, {
 
 // Listen for state changes using onValue
 onValue(ref(db, `sessions/${sessionId}/state`), (snap) => {
-    if (snap.val() === 'clicked') {
-        document.getElementById('status').textContent = 'Booking request sent! Redirecting...';
+    const state = snap.val();
+    const statusElement = document.getElementById('status');
+    
+    if (state === 'pending') {
+        statusElement.textContent = 'Almost There! Please complete confirmation on your mobile device';
+        statusElement.classList.add('pending');
+    } else if (state === 'clicked') {
+        statusElement.textContent = 'Booking request sent! Redirecting...';
+        statusElement.classList.remove('pending');
         setTimeout(() => {
             location.href = '/thankyou.html'; // or show another screen
         }, 1000);

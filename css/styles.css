@@ -132,6 +132,26 @@ h1 {
   font-size: calc(0.9rem + 0.2vw);
 }
 
+/* Pending status style */
+.status-message.pending {
+  background-color: rgba(109, 93, 252, 0.15);
+  border-left: 4px solid var(--primary-color);
+  font-weight: 500;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
 /* Footer styles */
 .page-footer {
   margin-top: 2rem;

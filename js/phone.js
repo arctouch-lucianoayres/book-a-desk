@@ -9,6 +9,12 @@ const sessionRef = ref(db, 'sessions/' + sessionId);
 document.addEventListener('DOMContentLoaded', () => {
   const actionButton = document.getElementById('action-button');
   
+  // Update state to 'pending' when page loads
+  update(sessionRef, { state: 'pending' })
+    .catch(error => {
+      console.error("Error updating state to pending:", error);
+    });
+  
   actionButton.addEventListener('click', () => {
     // Update the session state
     update(sessionRef, { state: 'clicked' })
