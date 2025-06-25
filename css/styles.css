@@ -10,21 +10,26 @@
   --success-color: #03dac6;
   --shadow-color: rgba(0, 0, 0, 0.3);
   --transition-speed: 0.3s;
+  --container-width-large: 700px;
+  --container-width-medium: 90%;
+  --container-width-small: 95%;
+  --padding-large: 3rem;
+  --padding-medium: 2rem;
+  --padding-small: 1rem;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
   background-color: var(--background-color);
   color: var(--text-primary);
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 body {
@@ -33,88 +38,112 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: var(--padding-small);
+}
+
+/* Page structure */
+.page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
   background-color: var(--surface-color);
   border-radius: 16px;
-  padding: 2rem;
-  width: 90%;
-  max-width: 600px;
+  padding: var(--padding-medium);
+  width: var(--container-width-medium);
+  max-width: var(--container-width-large);
   box-shadow: 0 10px 20px var(--shadow-color);
   margin: 0 auto;
-  text-align: center;
-  transition: transform var(--transition-speed);
+}
+
+.responsive-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh;
+}
+
+/* Header styles */
+.page-header {
+  margin-bottom: 2rem;
 }
 
 h1 {
-  margin-bottom: 20px;
+  font-size: calc(1.8rem + 1vw);
   font-weight: 600;
   color: var(--text-primary);
-  font-size: 2.2rem;
-}
-
-p {
-  margin: 10px 0;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-}
-
-.qr-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem 0;
-  width: 100%;
-}
-
-#qrcode {
-  margin: 2rem 0;
-  display: block;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px var(--shadow-color);
-  max-width: 90%;
-  height: auto;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
   color: var(--text-secondary);
-  margin-top: -0.5rem;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
+  font-size: calc(0.9rem + 0.3vw);
+  margin-bottom: 1.5rem;
 }
 
-header {
-  margin-bottom: 1rem;
+/* QR Code section */
+.qr-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
 }
 
-footer {
-  margin-top: 2rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.content {
+.qr-inner {
   width: 100%;
-  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.status-wrapper {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.responsive-qr {
+  max-width: 100%;
+  height: auto;
+}
+
+#qrcode {
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 90%;
+}
+
+.status-message {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  font-size: calc(0.9rem + 0.2vw);
+}
+
+/* Footer styles */
+.page-footer {
+  margin-top: 2rem;
 }
 
 .instructions {
+  color: var(--text-secondary);
   font-style: italic;
+  font-size: calc(0.8rem + 0.2vw);
 }
 
-#status {
-  font-size: 1.1rem;
-  margin: 1rem 0;
-  padding: 0.5rem;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
+/* Button styles */
 button, .button {
   padding: 14px 28px;
   font-size: 1.1rem;
@@ -143,40 +172,166 @@ button:disabled {
   box-shadow: none;
 }
 
-/* For tablet-specific optimizations */
-@media (min-width: 768px) {
+p {
+  margin: 10px 0;
+  color: var(--text-secondary);
+}
+
+/* Truly responsive breakpoints */
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
   .container {
-    padding: 3rem;
-    max-width: 700px;
+    width: var(--container-width-small);
+    padding: var(--padding-small);
+    border-radius: 12px;
   }
   
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  p {
-    font-size: 1.2rem;
-  }
-  
-  button, .button {
-    font-size: 1.2rem;
-    padding: 16px 32px;
+  .page-header {
+    margin-bottom: 1rem;
   }
   
   #qrcode {
-    margin: 2.5rem auto;
-    padding: 2rem;
+    padding: 1rem;
   }
   
-  .qr-container {
-    margin: 3rem 0;
+  .page-footer {
+    margin-top: 1rem;
+  }
+  
+  body {
+    padding: 0.5rem;
+  }
+  
+  .qr-inner {
+    width: 90%;
+  }
+  
+  h1 {
+    font-size: 1.7rem;
   }
   
   .subtitle {
-    font-size: 1.3rem;
+    font-size: 1rem;
+  }
+}
+
+/* Tablets */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .container {
+    width: var(--container-width-medium);
+    padding: var(--padding-medium);
   }
   
-  footer {
-    font-size: 1rem;
+  #qrcode {
+    padding: 1.8rem;
+  }
+  
+  .qr-inner {
+    width: 95%;
+  }
+  
+  h1 {
+    font-size: calc(1.6rem + 0.8vw);
+  }
+  
+  #qrcode {
+    transform: scale(0.95);
+    transform-origin: center center;
+  }
+}
+
+/* Larger screens */
+@media screen and (min-width: 1025px) {
+  .container {
+    width: 80%;
+    max-width: 800px;
+    padding: var(--padding-large);
+  }
+  
+  #qrcode {
+    padding: 2rem;
+    max-width: 80%;
+  }
+  
+  .responsive-container {
+    min-height: 60vh;
+  }
+  
+  .qr-inner {
+    width: 90%;
+  }
+  
+  #qrcode {
+    transform: scale(1);
+    transform-origin: center center;
+  }
+}
+
+/* Special handling for height-challenged displays */
+@media screen and (max-height: 600px) {
+  .page-wrapper {
+    align-items: flex-start;
+    padding-top: 1rem;
+  }
+  
+  .responsive-container {
+    min-height: auto;
+  }
+  
+  .page-header {
+    margin-bottom: 1rem;
+  }
+  
+  .page-footer {
+    margin-top: 1rem;
+  }
+  
+  #qrcode {
+    margin: 1rem 0;
+  }
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.responsive-button {
+  padding: calc(0.8rem + 0.3vw) calc(1.5rem + 0.5vw);
+  font-size: calc(1rem + 0.2vw);
+  min-width: 200px;
+  max-width: 90%;
+}
+
+@media screen and (max-width: 480px) {
+  .content-section {
+    margin: 1rem 0;
+  }
+  
+  .responsive-button {
+    min-width: 180px;
+    padding: 12px 24px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .responsive-button {
+    min-width: 220px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .content-section {
+    margin: 3rem 0;
+  }
+  
+  .responsive-button {
+    min-width: 250px;
+    padding: 16px 32px;
   }
 } 

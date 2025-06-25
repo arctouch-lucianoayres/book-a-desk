@@ -1,10 +1,12 @@
-.container {
+.success-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 70vh;
   text-align: center;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .success-emoji {
@@ -35,7 +37,7 @@
 
 .success-message {
   color: var(--text-primary);
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
   font-size: 1.2rem;
 }
 
@@ -55,5 +57,37 @@
   }
   100% {
     transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .success-emoji {
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .success-message {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 1.5rem;
+  }
+  
+  .success-section {
+    min-height: 60vh;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .success-emoji {
+    width: 140px;
+    height: 140px;
+    font-size: 90px;
+  }
+  
+  .success-message {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 2.5rem;
   }
 } 
