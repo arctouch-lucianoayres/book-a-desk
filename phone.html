@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Tap the Button</title>
+  <title>Book A Desk</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
   <script type="module" src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js"></script>
   <script type="module" src="https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js"></script>
@@ -11,9 +13,19 @@
 </head>
 <body>
   <div class="container">
-    <h1>Confirm Desk Booking</h1>
-    <button id="action-button">Confirm Booking</button>
-    <p id="status"></p>
+    <header>
+      <h1>Desk Booking</h1>
+      <p class="subtitle">Confirm your desk reservation</p>
+    </header>
+    
+    <div class="content">
+      <button id="action-button">Confirm Booking</button>
+      <p id="status"></p>
+    </div>
+    
+    <footer>
+      <p>Tap the button to finalize your desk booking</p>
+    </footer>
   </div>
 </body>
 </html>

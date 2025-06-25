@@ -3,11 +3,57 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 80vh;
   text-align: center;
 }
 
 .success-emoji {
-  font-size: 72px;
-  margin-bottom: 20px;
+  font-size: 80px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(3, 218, 198, 0.15);
+  border-radius: 50%;
+  color: var(--success-color);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(3, 218, 198, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(3, 218, 198, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(3, 218, 198, 0);
+  }
+}
+
+.success-message {
+  color: var(--text-primary);
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+/* Confetti animation effect */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color);
+  opacity: 0.7;
+  animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+  }
 } 
